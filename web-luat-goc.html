@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thư viện Luật Quốc tế</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: { colors: { navy: { 900: '#0B1F3A', 800: '#12294D', 700: '#1B3A6B' } } } } };
+</script>
+<style type="text/tailwindcss">
+  .serif { font-family: Georgia, 'Times New Roman', serif; }
+  .field { @apply w-full border border-slate-300 rounded-md px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-navy-700; }
+  .lbl { @apply block text-sm font-medium text-slate-700 mb-1; }
+  .btn { @apply px-4 py-2 rounded-md text-sm font-medium bg-navy-900 text-white hover:bg-navy-700; }
+  .btn-ghost { @apply px-3 py-1.5 rounded-md text-sm text-navy-800 border border-slate-300 bg-white hover:bg-slate-100; }
+  .card { @apply bg-white border border-slate-200 rounded-lg p-5; }
+  .page { display: none; }
+  .page.active { display: block; animation: fadeIn .25s ease; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) { .page.active { animation: none; } }
+</style>
+</head>
+<body class="bg-slate-100 text-slate-800 md:flex min-h-screen">
+
+<!-- ========== SIDEBAR ĐIỀU HƯỚNG ========== -->
+<aside class="md:w-64 md:min-h-screen bg-navy-900 text-white p-5 md:shrink-0">
+  <h1 class="serif text-xl leading-snug mb-1">Thư viện Luật Quốc tế</h1>
+  <p class="text-sm text-slate-300 mb-6">Điều ước, tập quán và án lệ</p>
+  <nav class="flex md:flex-col gap-2" id="nav">
+    <button data-page="dashboard" class="nav-btn text-left px-3 py-2 rounded-md text-sm hover:bg-navy-700">Tổng quan Dashboard</button>
+    <button data-page="treaties" class="nav-btn text-left px-3 py-2 rounded-md text-sm hover:bg-navy-700">Điều ước &amp; Tập quán</button>
+    <button data-page="cases" class="nav-btn text-left px-3 py-2 rounded-md text-sm hover:bg-navy-700">Thư viện Án lệ</button>
+  </nav>
+</aside>
+
+<main class="flex-1 p-5 md:p-10 min-w-0">
+
+  <!-- ========== TRANG 1: TỔNG QUAN DASHBOARD ========== -->
+  <section id="page-dashboard" class="page">
+    <h2 class="serif text-3xl text-navy-900 mb-6">Tổng quan</h2>
+    <div id="stats" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-5 mb-8"></div>
+    <div class="card">
+      <label for="global-search" class="lbl">Tìm kiếm toàn văn nhanh (cả điều ước và án lệ)</label>
+      <input id="global-search" class="field" placeholder="Ví dụ: thềm lục địa, estoppel, eo biển..." oninput="renderGlobalSearch()">
+      <div id="global-results" class="mt-4 space-y-2"></div>
+    </div>
+  </section>
+
+  <!-- ========== TRANG 2: ĐIỀU ƯỚC & TẬP QUÁN ========== -->
+  <section id="page-treaties" class="page">
+    <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+      <h2 class="serif text-3xl text-navy-900">Điều ước &amp; Tập quán quốc tế</h2>
+      <button class="btn" onclick="openTreatyForm()">Thêm văn kiện</button>
+    </div>
+    <div class="flex flex-wrap gap-3 mb-6">
+      <input id="treaty-search" class="field sm:w-80" placeholder="Tìm theo tên hoặc từ khóa" oninput="renderTreaties()" aria-label="Tìm văn kiện">
+      <select id="treaty-filter" class="field sm:w-72" onchange="renderTreaties()" aria-label="Lọc theo phân loại nguồn"></select>
+    </div>
+    <div id="treaty-list" class="grid gap-4 lg:grid-cols-2"></div>
+  </section>
+
+  <!-- ========== TRANG 3: THƯ VIỆN ÁN LỆ ========== -->
+  <section id="page-cases" class="page">
+    <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+      <h2 class="serif text-3xl text-navy-900">Thư viện Án lệ</h2>
+      <button class="btn" onclick="openCaseForm()">Thêm án lệ</button>
+    </div>
+    <input id="case-search" class="field sm:w-96 mb-6" placeholder="Tìm theo tên vụ việc, cơ quan hoặc nội dung" oninput="renderCases()" aria-label="Tìm án lệ">
+    <div id="case-list" class="space-y-4"></div>
+  </section>
+</main>
+
+<!-- ========== MODAL: FORM ĐIỀU ƯỚC & TẬP QUÁN ========== -->
+<div id="treaty-modal" class="hidden fixed inset-0 bg-navy-900/60 items-center justify-center p-4 z-50">
+  <form onsubmit="saveTreaty(event)" class="bg-white rounded-lg w-full max-w-2xl max-h-[90vh] overflow-y-auto p-6 space-y-4">
+    <h3 id="treaty-modal-title" class="serif text-2xl text-navy-900"></h3>
+    <input type="hidden" id="t-id">
+    <div><label class="lbl" for="t-name">Tên văn kiện / Nguyên tắc</label><input id="t-name" class="field" required></div>
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div><label class="lbl" for="t-category">Phân loại nguồn</label><select id="t-category" class="field"></select></div>
+      <div><label class="lbl" for="t-date">Ngày hiệu lực / Kỷ nguyên hình thành</label><input id="t-date" class="field" required></div>
+    </div>
+    <div><label class="lbl" for="t-content">Nội dung cốt lõi</label><textarea id="t-content" rows="6" class="field" required></textarea></div>
+    <div><label class="lbl" for="t-tags">Từ khóa (cách nhau bằng dấu phẩy)</label><input id="t-tags" class="field"></div>
+    <div class="flex justify-end gap-2"><button type="button" class="btn-ghost" onclick="closeModal('treaty-modal')">Hủy</button><button class="btn">Lưu văn kiện</button></div>
+  </form>
+</div>
+
+<!-- ========== MODAL: FORM ÁN LỆ (IRAC) ========== -->
+<div id="case-modal" class="hidden fixed inset-0 bg-navy-900/60 items-center justify-center p-4 z-50">
+  <form onsubmit="saveCase(event)" class="bg-white rounded-lg w-full max-w-2xl max-h-[90vh] overflow-y-auto p-6 space-y-4">
+    <h3 id="case-modal-title" class="serif text-2xl text-navy-900"></h3>
+    <input type="hidden" id="c-id">
+    <div><label class="lbl" for="c-name">Tên vụ việc</label><input id="c-name" class="field" required></div>
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div><label class="lbl" for="c-court">Cơ quan tài phán</label><input id="c-court" class="field" placeholder="ICJ, PCA, ITLOS..." required></div>
+      <div><label class="lbl" for="c-year">Năm phán quyết</label><input id="c-year" type="number" min="1800" max="2100" class="field" required></div>
+    </div>
+    <div><label class="lbl" for="c-facts">Tóm tắt sự kiện thực tế (Facts)</label><textarea id="c-facts" rows="4" class="field" required></textarea></div>
+    <div><label class="lbl" for="c-issues">Vấn đề pháp lý tranh chấp (Legal Issues)</label><textarea id="c-issues" rows="3" class="field" required></textarea></div>
+    <div><label class="lbl" for="c-holding">Lập luận của Tòa &amp; Phán quyết (Holding / Reasoning)</label><textarea id="c-holding" rows="5" class="field" required></textarea></div>
+    <div><label class="lbl" for="c-significance">Ý nghĩa pháp lý (Significance)</label><textarea id="c-significance" rows="3" class="field" required></textarea></div>
+    <div class="flex justify-end gap-2"><button type="button" class="btn-ghost" onclick="closeModal('case-modal')">Hủy</button><button class="btn">Lưu án lệ</button></div>
+  </form>
+</div>
+
+<script>
+/* ========== 1. DỮ LIỆU MẪU ========== */
+const SOURCE_TYPES = ['Điều ước quốc tế', 'Tập quán quốc tế', 'Nguyên tắc pháp lý chung'];
+const BADGE_STYLES = {
+  'Điều ước quốc tế': 'bg-blue-100 text-blue-900',
+  'Tập quán quốc tế': 'bg-amber-100 text-amber-900',
+  'Nguyên tắc pháp lý chung': 'bg-emerald-100 text-emerald-900'
+};
+
+const SEED_TREATIES = [
+  {
+    id: 'seed-unclos', name: 'Công ước Liên hợp quốc về Luật Biển 1982 (UNCLOS)',
+    category: 'Điều ước quốc tế', date: 'Ký ngày 10/12/1982; có hiệu lực từ 16/11/1994',
+    content: 'Văn kiện được coi là "hiến pháp của đại dương", gồm 320 điều và 9 phụ lục.\n' +
+      'Phân định các vùng biển: nội thủy; lãnh hải tối đa 12 hải lý; vùng tiếp giáp lãnh hải 24 hải lý; vùng đặc quyền kinh tế (EEZ) 200 hải lý; thềm lục địa; biển cả; và Vùng (Area) là di sản chung của nhân loại.\n' +
+      'Thiết lập các chế độ pháp lý: quyền đi qua vô hại, quá cảnh qua eo biển quốc tế, đi qua vùng nước quần đảo; quyền chủ quyền của quốc gia ven biển trong EEZ; nghĩa vụ bảo vệ môi trường biển.\n' +
+      'Phần XV quy định cơ chế giải quyết tranh chấp bắt buộc: Tòa án Quốc tế về Luật Biển (ITLOS), Tòa án Công lý Quốc tế (ICJ), trọng tài theo Phụ lục VII hoặc trọng tài đặc biệt theo Phụ lục VIII.',
+    tags: ['luật biển', 'UNCLOS', 'vùng đặc quyền kinh tế', 'thềm lục địa', 'giải quyết tranh chấp']
+  },
+  {
+    id: 'seed-estoppel', name: 'Nguyên tắc Estoppel (ngăn cản do hành vi trước đó)',
+    category: 'Nguyên tắc pháp lý chung', date: 'Hình thành từ thế kỷ XIX, được PCIJ và ICJ áp dụng trong thế kỷ XX',
+    content: 'Một quốc gia không được phép đưa ra lập trường mâu thuẫn với tuyên bố hoặc hành vi trước đó của chính mình, nếu quốc gia khác đã tin cậy một cách thiện chí và vì vậy bị thiệt hại hoặc thay đổi vị thế.\n' +
+      'Ba yếu tố cấu thành thường được viện dẫn: (1) tuyên bố hoặc hành vi rõ ràng, nhất quán; (2) bên kia tin cậy thiện chí vào tuyên bố đó; (3) bên kia bị thiệt hại hoặc bên phát ngôn thu được lợi ích nếu được phép phủ nhận.\n' +
+      'Nguyên tắc bắt nguồn từ thiện chí (good faith) và sự ổn định trong quan hệ quốc tế. Các vụ việc tiêu biểu: Đền Preah Vihear (1962), Thềm lục địa Biển Bắc (1969), Vịnh Maine (1984).',
+    tags: ['estoppel', 'thiện chí', 'tuyên bố đơn phương', 'Preah Vihear', 'nguyên tắc chung']
+  }
+];
+
+const SEED_CASES = [
+  {
+    id: 'seed-corfu', name: 'Vụ Eo biển Corfu (Vương quốc Anh kiện Albania)', court: 'ICJ', year: 1949,
+    facts: 'Ngày 15/10/1946, hai tàu khu trục Saumarez và Volage của Hải quân Anh đi qua eo biển Corfu thuộc lãnh hải Albania thì trúng mìn, khiến 44 người chết và 42 người bị thương. Sau đó, trong tháng 11/1946, Anh đơn phương tiến hành chiến dịch quét mìn (Operation Retail) trong lãnh hải Albania mà không được phép. Anh đưa vụ việc ra ICJ, yêu cầu Albania chịu trách nhiệm và bồi thường.',
+    issues: '1. Albania có chịu trách nhiệm quốc tế về việc đặt mìn hoặc để mìn tồn tại trong lãnh hải của mình không?\n2. Việc tàu chiến Anh đi qua eo biển có phải là đi qua vô hại không?\n3. Operation Retail có vi phạm chủ quyền lãnh thổ của Albania không?',
+    holding: 'Về trách nhiệm của Albania: Tòa nhận định vụ nổ mìn không thể xảy ra nếu Albania không biết về bãi mìn. Albania đã không thông báo cho tàu thuyền về mối nguy hiểm, vi phạm nghĩa vụ "không cho phép lãnh thổ của mình bị sử dụng để thực hiện hành vi trái với quyền của quốc gia khác". Do đó Albania chịu trách nhiệm và phải bồi thường (phán quyết về mức bồi thường ngày 15/12/1949: 843.947 bảng Anh).\nVề quyền đi qua: Tòa khẳng định tàu chiến có quyền đi qua vô hại các eo biển dùng cho hàng hải quốc tế mà không cần xin phép trước; chuyến đi của tàu Anh là hợp pháp.\nVề Operation Retail: Tòa bác bỏ lý lẽ tự vệ và "can thiệp để tự thu thập chứng cứ", coi đó là hành vi vi phạm chủ quyền Albania; việc tuyên bố vi phạm đã đủ là sự thỏa mãn thích đáng.',
+    significance: 'Là phán quyết đầu tiên của ICJ về nội dung vụ việc. Xác lập nghĩa vụ của quốc gia không để lãnh thổ bị sử dụng gây hại cho quốc gia khác (nền tảng của nguyên tắc ngăn ngừa thiệt hại xuyên biên giới), củng cố quyền đi qua vô hại của tàu chiến qua eo biển quốc tế, và bác bỏ việc dùng vũ lực đơn phương để tự bảo vệ quyền lợi. Cũng là ví dụ điển hình về việc tòa quốc tế chấp nhận chứng cứ gián tiếp.'
+  },
+  {
+    id: 'seed-northsea', name: 'Các vụ Thềm lục địa Biển Bắc (CHLB Đức kiện Đan Mạch và Hà Lan)', court: 'ICJ', year: 1969,
+    facts: 'Đức, Đan Mạch và Hà Lan đã thỏa thuận phân định một phần ranh giới thềm lục địa gần bờ theo nguyên tắc đường cách đều. Phần ranh giới xa bờ không thỏa thuận được vì bờ biển Đức lõm vào, nên đường cách đều sẽ cho Đức vùng thềm lục địa nhỏ hơn nhiều so với chiều dài bờ biển. Đức đã ký nhưng chưa phê chuẩn Công ước Giơnevơ 1958 về Thềm lục địa. Hai vụ được ICJ gộp xét.',
+    issues: '1. Đức có bị ràng buộc bởi nguyên tắc đường cách đều (Điều 6 Công ước 1958) với tư cách điều ước hoặc tập quán quốc tế không?\n2. Nguyên tắc nào được áp dụng để phân định thềm lục địa giữa các quốc gia có bờ biển tiếp giáp?',
+    holding: 'Tòa bác bỏ lập luận của Đan Mạch và Hà Lan. Đức không phải thành viên nên không bị ràng buộc theo điều ước; Tòa cũng không chấp nhận rằng Đức bị ngăn cản (estoppel) do hành vi trước đó vì chưa có bằng chứng Đức đã chấp nhận rõ ràng chế độ này hay các bên đã tin cậy và bị thiệt hại.\nTòa xác định đường cách đều không phải quy tắc tập quán bắt buộc. Một quy phạm điều ước chỉ trở thành tập quán nếu có tính chất tạo lập quy phạm, thực tiễn quốc gia rộng rãi và đại diện (kể cả các quốc gia có lợi ích đặc biệt), cùng niềm tin pháp lý (opinio juris).\nViệc phân định phải thực hiện bằng thỏa thuận theo các nguyên tắc công bằng, có xét đến mọi hoàn cảnh liên quan và nguyên tắc thềm lục địa là phần kéo dài tự nhiên của lãnh thổ đất liền.',
+    significance: 'Phán quyết kinh điển về cách hình thành tập quán quốc tế và quá trình một quy phạm điều ước trở thành tập quán. Đặt nền tảng cho nguyên tắc công bằng trong phân định biển, ảnh hưởng trực tiếp tới các Điều 74 và 83 của UNCLOS 1982 và các án lệ phân định biển sau này.'
+  }
+];
+
+/* ========== 2. LOCALSTORAGE (CRUD) ========== */
+const STORAGE_KEYS = { treaties: 'ilaw_treaties_v1', cases: 'ilaw_cases_v1' };
+
+function readStore(key, seed) {
+  try {
+    const raw = localStorage.getItem(key);
+    if (raw) return JSON.parse(raw);
+  } catch (error) { /* LocalStorage không khả dụng: dùng dữ liệu trong bộ nhớ */ }
+  writeStore(key, seed);
+  return JSON.parse(JSON.stringify(seed));
+}
+
+function writeStore(key, data) {
+  try { localStorage.setItem(key, JSON.stringify(data)); } catch (error) { /* bỏ qua */ }
+}
+
+let treaties = readStore(STORAGE_KEYS.treaties, SEED_TREATIES);
+let cases = readStore(STORAGE_KEYS.cases, SEED_CASES);
+let expandedCaseId = null;
+
+/* ========== 3. HÀM TIỆN ÍCH ========== */
+const $ = (id) => document.getElementById(id);
+const escapeHtml = (text) => String(text ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+// Chuẩn hóa chuỗi: bỏ dấu tiếng Việt, hạ chữ thường để tìm kiếm thân thiện
+const normalize = (text) => String(text ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd').toLowerCase();
+const generateId = () => 'id' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+const emptyState = (message) => `<p class="text-slate-500 text-sm col-span-full py-6">${message}</p>`;
+const textBlock = (title, text) => `<div><h4 class="serif text-navy-800 text-base mb-1">${title}</h4><p class="text-sm leading-relaxed whitespace-pre-line">${escapeHtml(text)}</p></div>`;
+
+function openModal(id) { $(id).classList.remove('hidden'); $(id).classList.add('flex'); }
+function closeModal(id) { $(id).classList.add('hidden'); $(id).classList.remove('flex'); }
+
+/* ========== 4. ĐIỀU HƯỚNG (SPA) ========== */
+function navigate(page) {
+  document.querySelectorAll('.page').forEach((el) => el.classList.toggle('active', el.id === 'page-' + page));
+  document.querySelectorAll('.nav-btn').forEach((btn) => btn.classList.toggle('bg-navy-700', btn.dataset.page === page));
+  if (page === 'dashboard') renderDashboard();
+  if (page === 'treaties') renderTreaties();
+  if (page === 'cases') renderCases();
+  window.scrollTo(0, 0);
+}
+
+/* ========== 5. RENDER DASHBOARD ========== */
+function renderDashboard() {
+  const widgets = [
+    ['Tổng số văn kiện đã lưu', treaties.length],
+    ['Số lượng án lệ', cases.length],
+    ...SOURCE_TYPES.map((type) => [type, treaties.filter((t) => t.category === type).length])
+  ];
+  $('stats').innerHTML = widgets.map(([label, value]) =>
+    `<div class="card"><div class="serif text-4xl text-navy-900">${value}</div><div class="text-sm text-slate-600 mt-1">${escapeHtml(label)}</div></div>`).join('');
+  renderGlobalSearch();
+}
+
+function renderGlobalSearch() {
+  const query = normalize($('global-search').value.trim());
+  if (!query) { $('global-results').innerHTML = '<p class="text-sm text-slate-500">Nhập từ khóa để tìm trong tất cả văn kiện và án lệ.</p>'; return; }
+  const treatyHits = treaties.filter((t) => normalize([t.name, t.category, t.date, t.content, t.tags.join(' ')].join(' ')).includes(query));
+  const caseHits = cases.filter((c) => normalize([c.name, c.court, c.year, c.facts, c.issues, c.holding, c.significance].join(' ')).includes(query));
+  const row = (kind, item, label, tag) =>
+    `<button onclick="openResult('${kind}','${item.id}')" class="w-full text-left border border-slate-200 rounded-md px-4 py-3 hover:bg-slate-50">
+      <span class="text-xs ${tag} rounded px-2 py-0.5 mr-2">${label}</span><span class="text-sm font-medium text-navy-900">${escapeHtml(item.name)}</span></button>`;
+  const html = treatyHits.map((t) => row('treaty', t, t.category, BADGE_STYLES[t.category] || 'bg-slate-100 text-slate-800'))
+    .concat(caseHits.map((c) => row('case', c, 'Án lệ · ' + c.court + ' ' + c.year, 'bg-indigo-100 text-indigo-900')));
+  $('global-results').innerHTML = html.length ? html.join('') : '<p class="text-sm text-slate-500">Không tìm thấy kết quả phù hợp.</p>';
+}
+
+function openResult(kind, id) {
+  if (kind === 'treaty') {
+    navigate('treaties');
+    $('treaty-filter').value = '';
+    $('treaty-search').value = treaties.find((t) => t.id === id).name;
+    renderTreaties();
+  } else {
+    expandedCaseId = id;
+    navigate('cases');
+  }
+}
+
+/* ========== 6. RENDER & CRUD: ĐIỀU ƯỚC & TẬP QUÁN ========== */
+function renderTreaties() {
+  const filterSelect = $('treaty-filter');
+  if (!filterSelect.options.length) {
+    filterSelect.innerHTML = '<option value="">Tất cả phân loại nguồn</option>' + SOURCE_TYPES.map((t) => `<option>${t}</option>`).join('');
+    $('t-category').innerHTML = SOURCE_TYPES.map((t) => `<option>${t}</option>`).join('');
+  }
+  const query = normalize($('treaty-search').value.trim());
+  const list = treaties.filter((t) =>
+    (!filterSelect.value || t.category === filterSelect.value) &&
+    (!query || normalize(t.name + ' ' + t.tags.join(' ')).includes(query)));
+  $('treaty-list').innerHTML = list.length ? list.map((t) => `
+    <article class="card flex flex-col">
+      <div class="flex items-start justify-between gap-3 mb-2">
+        <h3 class="serif text-xl text-navy-900 leading-snug">${escapeHtml(t.name)}</h3>
+        <span class="text-xs rounded px-2 py-1 shrink-0 ${BADGE_STYLES[t.category] || 'bg-slate-100 text-slate-800'}">${escapeHtml(t.category)}</span>
+      </div>
+      <p class="text-sm text-slate-500 mb-3">${escapeHtml(t.date)}</p>
+      <p class="text-sm leading-relaxed whitespace-pre-line mb-4">${escapeHtml(t.content)}</p>
+      <div class="flex flex-wrap gap-1.5 mb-4">${t.tags.map((tag) => `<span class="text-xs bg-slate-100 text-slate-700 rounded px-2 py-0.5">${escapeHtml(tag)}</span>`).join('')}</div>
+      <div class="flex gap-2 mt-auto"><button class="btn-ghost" onclick="openTreatyForm('${t.id}')">Sửa</button><button class="btn-ghost text-red-700" onclick="deleteTreaty('${t.id}')">Xóa</button></div>
+    </article>`).join('') : emptyState('Không tìm thấy văn kiện phù hợp. Thử đổi từ khóa hoặc bấm "Thêm văn kiện".');
+}
+
+function openTreatyForm(id) {
+  const item = treaties.find((t) => t.id === id);
+  $('treaty-modal-title').textContent = item ? 'Sửa văn kiện' : 'Thêm văn kiện mới';
+  $('t-id').value = item ? item.id : '';
+  $('t-name').value = item ? item.name : '';
+  $('t-category').value = item ? item.category : SOURCE_TYPES[0];
+  $('t-date').value = item ? item.date : '';
+  $('t-content').value = item ? item.content : '';
+  $('t-tags').value = item ? item.tags.join(', ') : '';
+  openModal('treaty-modal');
+}
+
+function saveTreaty(event) {
+  event.preventDefault();
+  const record = {
+    id: $('t-id').value || generateId(),
+    name: $('t-name').value.trim(), category: $('t-category').value, date: $('t-date').value.trim(),
+    content: $('t-content').value.trim(),
+    tags: $('t-tags').value.split(',').map((tag) => tag.trim()).filter(Boolean)
+  };
+  const index = treaties.findIndex((t) => t.id === record.id);
+  if (index >= 0) treaties[index] = record; else treaties.unshift(record);
+  writeStore(STORAGE_KEYS.treaties, treaties);
+  closeModal('treaty-modal');
+  renderTreaties();
+}
+
+function deleteTreaty(id) {
+  if (!confirm('Xóa văn kiện này? Thao tác không thể hoàn tác.')) return;
+  treaties = treaties.filter((t) => t.id !== id);
+  writeStore(STORAGE_KEYS.treaties, treaties);
+  renderTreaties();
+}
+
+/* ========== 7. RENDER & CRUD: THƯ VIỆN ÁN LỆ ========== */
+function renderCases() {
+  const query = normalize($('case-search').value.trim());
+  const list = cases.filter((c) => !query || normalize([c.name, c.court, c.year, c.facts, c.issues, c.holding, c.significance].join(' ')).includes(query));
+  $('case-list').innerHTML = list.length ? list.map((c) => {
+    const open = c.id === expandedCaseId;
+    return `
+    <article class="card">
+      <button class="w-full text-left" onclick="toggleCase('${c.id}')" aria-expanded="${open}">
+        <div class="flex items-start justify-between gap-3">
+          <h3 class="serif text-xl text-navy-900 leading-snug">${escapeHtml(c.name)}</h3>
+          <span class="text-xs bg-navy-900 text-white rounded px-2 py-1 shrink-0">${escapeHtml(c.court)} · ${escapeHtml(c.year)}</span>
+        </div>
+        ${open ? '' : `<p class="text-sm text-slate-600 mt-2 line-clamp-2">${escapeHtml(c.facts)}</p><p class="text-sm text-navy-700 mt-2">Xem bản tóm tắt IRAC</p>`}
+      </button>
+      ${open ? `<div class="mt-4 pt-4 border-t border-slate-200 space-y-4">
+        ${textBlock('Sự kiện (Facts)', c.facts)}${textBlock('Vấn đề pháp lý (Issues)', c.issues)}
+        ${textBlock('Lập luận &amp; Phán quyết (Holding / Reasoning)', c.holding)}${textBlock('Ý nghĩa pháp lý (Significance)', c.significance)}
+        <div class="flex gap-2"><button class="btn-ghost" onclick="openCaseForm('${c.id}')">Sửa</button><button class="btn-ghost text-red-700" onclick="deleteCase('${c.id}')">Xóa</button><button class="btn-ghost" onclick="toggleCase('${c.id}')">Thu gọn</button></div>
+      </div>` : ''}
+    </article>`;
+  }).join('') : emptyState('Không tìm thấy án lệ phù hợp. Thử đổi từ khóa hoặc bấm "Thêm án lệ".');
+}
+
+function toggleCase(id) {
+  expandedCaseId = expandedCaseId === id ? null : id;
+  renderCases();
+}
+
+function openCaseForm(id) {
+  const item = cases.find((c) => c.id === id);
+  const fields = ['name', 'court', 'year', 'facts', 'issues', 'holding', 'significance'];
+  $('case-modal-title').textContent = item ? 'Sửa án lệ' : 'Thêm án lệ mới';
+  $('c-id').value = item ? item.id : '';
+  fields.forEach((field) => { $('c-' + field).value = item ? item[field] : ''; });
+  openModal('case-modal');
+}
+
+function saveCase(event) {
+  event.preventDefault();
+  const record = { id: $('c-id').value || generateId() };
+  ['name', 'court', 'year', 'facts', 'issues', 'holding', 'significance'].forEach((field) => { record[field] = $('c-' + field).value.trim(); });
+  const index = cases.findIndex((c) => c.id === record.id);
+  if (index >= 0) cases[index] = record; else cases.unshift(record);
+  expandedCaseId = record.id;
+  writeStore(STORAGE_KEYS.cases, cases);
+  closeModal('case-modal');
+  renderCases();
+}
+
+function deleteCase(id) {
+  if (!confirm('Xóa án lệ này? Thao tác không thể hoàn tác.')) return;
+  cases = cases.filter((c) => c.id !== id);
+  expandedCaseId = null;
+  writeStore(STORAGE_KEYS.cases, cases);
+  renderCases();
+}
+
+/* ========== 8. KHỞI TẠO ỨNG DỤNG ========== */
+document.querySelectorAll('.nav-btn').forEach((btn) => btn.addEventListener('click', () => navigate(btn.dataset.page)));
+document.addEventListener('keydown', (event) => { if (event.key === 'Escape') { closeModal('treaty-modal'); closeModal('case-modal'); } });
+renderTreaties(); // khởi tạo danh sách lọc và form trước khi chuyển trang
+navigate('dashboard');
+</script>
+</body>
+</html>

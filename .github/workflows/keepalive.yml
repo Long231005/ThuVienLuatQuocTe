@@ -1,0 +1,21 @@
+name: Supabase Keepalive
+
+on:
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Gọi API Keepalive để chống Supabase ngủ đông
+        env:
+          APP_URL: ${{ secrets.APP_URL }}
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+        run: |
+          if [ -z "$APP_URL" ] || [ -z "$CRON_SECRET" ]; then
+            echo "Chưa cấu hình APP_URL hoặc CRON_SECRET trong GitHub Secrets."
+            exit 0
+          fi
+          curl -fsSL -H "Authorization: Bearer ${CRON_SECRET}" "${APP_URL%/}/api/keepalive"

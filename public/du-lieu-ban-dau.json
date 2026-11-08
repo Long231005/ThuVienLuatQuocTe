@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "treaties": [
+    {
+      "name": "Công ước Liên hợp quốc về Luật Biển 1982 (UNCLOS)",
+      "category": "Điều ước quốc tế",
+      "date": "Ký ngày 10/12/1982; có hiệu lực từ 16/11/1994",
+      "content": "Văn kiện được coi là \"hiến pháp của đại dương\", gồm 320 điều và 9 phụ lục.\nPhân định các vùng biển: nội thủy; lãnh hải tối đa 12 hải lý; vùng tiếp giáp lãnh hải 24 hải lý; vùng đặc quyền kinh tế (EEZ) 200 hải lý; thềm lục địa; biển cả; và Vùng (Area) là di sản chung của nhân loại.\nThiết lập các chế độ pháp lý: quyền đi qua vô hại, quá cảnh qua eo biển quốc tế, đi qua vùng nước quần đảo; quyền chủ quyền của quốc gia ven biển trong EEZ; nghĩa vụ bảo vệ môi trường biển.\nPhần XV quy định cơ chế giải quyết tranh chấp bắt buộc: Tòa án Quốc tế về Luật Biển (ITLOS), Tòa án Công lý Quốc tế (ICJ), trọng tài theo Phụ lục VII hoặc trọng tài đặc biệt theo Phụ lục VIII.",
+      "tags": ["luật biển", "UNCLOS", "vùng đặc quyền kinh tế", "thềm lục địa", "giải quyết tranh chấp"],
+      "sources": []
+    },
+    {
+      "name": "Nguyên tắc Estoppel (ngăn cản do hành vi trước đó)",
+      "category": "Nguyên tắc pháp lý chung",
+      "date": "Hình thành từ thế kỷ XIX, được PCIJ và ICJ áp dụng trong thế kỷ XX",
+      "content": "Một quốc gia không được phép đưa ra lập trường mâu thuẫn với tuyên bố hoặc hành vi trước đó của chính mình, nếu quốc gia khác đã tin cậy một cách thiện chí và vì vậy bị thiệt hại hoặc thay đổi vị thế.\nBa yếu tố cấu thành thường được viện dẫn: (1) tuyên bố hoặc hành vi rõ ràng, nhất quán; (2) bên kia tin cậy thiện chí vào tuyên bố đó; (3) bên kia bị thiệt hại hoặc bên phát ngôn thu được lợi ích nếu được phép phủ nhận.\nNguyên tắc bắt nguồn từ thiện chí (good faith) và sự ổn định trong quan hệ quốc tế. Các vụ việc tiêu biểu: Đền Preah Vihear (1962), Thềm lục địa Biển Bắc (1969), Vịnh Maine (1984).",
+      "tags": ["estoppel", "thiện chí", "tuyên bố đơn phương", "Preah Vihear", "nguyên tắc chung"],
+      "sources": []
+    }
+  ],
+  "cases": [
+    {
+      "name": "Vụ Eo biển Corfu (Vương quốc Anh kiện Albania)",
+      "court": "ICJ",
+      "year": 1949,
+      "facts": "Ngày 15/10/1946, hai tàu khu trục Saumarez và Volage của Hải quân Anh đi qua eo biển Corfu thuộc lãnh hải Albania thì trúng mìn, khiến 44 người chết và 42 người bị thương. Sau đó, trong tháng 11/1946, Anh đơn phương tiến hành chiến dịch quét mìn (Operation Retail) trong lãnh hải Albania mà không được phép. Anh đưa vụ việc ra ICJ, yêu cầu Albania chịu trách nhiệm và bồi thường.",
+      "issues": "1. Albania có chịu trách nhiệm quốc tế về việc đặt mìn hoặc để mìn tồn tại trong lãnh hải của mình không?\n2. Việc tàu chiến Anh đi qua eo biển có phải là đi qua vô hại không?\n3. Operation Retail có vi phạm chủ quyền lãnh thổ của Albania không?",
+      "holding": "Về trách nhiệm của Albania: Tòa nhận định vụ nổ mìn không thể xảy ra nếu Albania không biết về bãi mìn. Albania đã không thông báo cho tàu thuyền về mối nguy hiểm, vi phạm nghĩa vụ \"không cho phép lãnh thổ của mình bị sử dụng để thực hiện hành vi trái với quyền của quốc gia khác\". Do đó Albania chịu trách nhiệm và phải bồi thường (phán quyết về mức bồi thường ngày 15/12/1949: 843.947 bảng Anh).\nVề quyền đi qua: Tòa khẳng định tàu chiến có quyền đi qua vô hại các eo biển dùng cho hàng hải quốc tế mà không cần xin phép trước; chuyến đi của tàu Anh là hợp pháp.\nVề Operation Retail: Tòa bác bỏ lý lẽ tự vệ và \"can thiệp để tự thu thập chứng cứ\", coi đó là hành vi vi phạm chủ quyền Albania; việc tuyên bố vi phạm đã đủ là sự thỏa mãn thích đáng.",
+      "significance": "Là phán quyết đầu tiên của ICJ về nội dung vụ việc. Xác lập nghĩa vụ của quốc gia không để lãnh thổ bị sử dụng gây hại cho quốc gia khác (nền tảng của nguyên tắc ngăn ngừa thiệt hại xuyên biên giới), củng cố quyền đi qua vô hại của tàu chiến qua eo biển quốc tế, và bác bỏ việc dùng vũ lực đơn phương để tự bảo vệ quyền lợi. Cũng là ví dụ điển hình về việc tòa quốc tế chấp nhận chứng cứ gián tiếp.",
+      "tags": [],
+      "sources": []
+    },
+    {
+      "name": "Các vụ Thềm lục địa Biển Bắc (CHLB Đức kiện Đan Mạch và Hà Lan)",
+      "court": "ICJ",
+      "year": 1969,
+      "facts": "Đức, Đan Mạch và Hà Lan đã thỏa thuận phân định một phần ranh giới thềm lục địa gần bờ theo nguyên tắc đường cách đều. Phần ranh giới xa bờ không thỏa thuận được vì bờ biển Đức lõm vào, nên đường cách đều sẽ cho Đức vùng thềm lục địa nhỏ hơn nhiều so với chiều dài bờ biển. Đức đã ký nhưng chưa phê chuẩn Công ước Giơnevơ 1958 về Thềm lục địa. Hai vụ được ICJ gộp xét.",
+      "issues": "1. Đức có bị ràng buộc bởi nguyên tắc đường cách đều (Điều 6 Công ước 1958) với tư cách điều ước hoặc tập quán quốc tế không?\n2. Nguyên tắc nào được áp dụng để phân định thềm lục địa giữa các quốc gia có bờ biển tiếp giáp?",
+      "holding": "Tòa bác bỏ lập luận của Đan Mạch và Hà Lan. Đức không phải thành viên nên không bị ràng buộc theo điều ước; Tòa cũng không chấp nhận rằng Đức bị ngăn cản (estoppel) do hành vi trước đó vì chưa có bằng chứng Đức đã chấp nhận rõ ràng chế độ này hay các bên đã tin cậy và bị thiệt hại.\nTòa xác định đường cách đều không phải quy tắc tập quán bắt buộc. Một quy phạm điều ước chỉ trở thành tập quán nếu có tính chất tạo lập quy phạm, thực tiễn quốc gia rộng rãi và đại diện (kể cả các quốc gia có lợi ích đặc biệt), cùng niềm tin pháp lý (opinio juris).\nViệc phân định phải thực hiện bằng thỏa thuận theo các nguyên tắc công bằng, có xét đến mọi hoàn cảnh liên quan và nguyên tắc thềm lục địa là phần kéo dài tự nhiên của lãnh thổ đất liền.",
+      "significance": "Phán quyết kinh điển về cách hình thành tập quán quốc tế và quá trình một quy phạm điều ước trở thành tập quán. Đặt nền tảng cho nguyên tắc công bằng trong phân định biển, ảnh hưởng trực tiếp tới các Điều 74 và 83 của UNCLOS 1982 và các án lệ phân định biển sau này.",
+      "tags": [],
+      "sources": []
+    }
+  ]
+}

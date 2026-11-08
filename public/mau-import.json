@@ -1,0 +1,143 @@
+{
+  "schema_version": "1.0",
+  "treaties": [
+    {
+      "name": "Hiến chương Liên hợp quốc 1945",
+      "category": "Điều ước quốc tế",
+      "date": "Ký ngày 26/06/1945 tại San Francisco; có hiệu lực từ 24/10/1945",
+      "content": "Văn kiện thành lập Liên hợp quốc và được xem là điều ước nền tảng của luật quốc tế hiện đại.\nĐiều 2(4) cấm đe dọa dùng hoặc dùng vũ lực chống lại toàn vẹn lãnh thổ hay độc lập chính trị của bất kỳ quốc gia nào. Điều 2(7) loại trừ việc can thiệp vào các công việc thuộc thẩm quyền nội bộ của quốc gia.\nĐiều 33 yêu cầu các bên tranh chấp tìm giải pháp hòa bình (đàm phán, trung gian, hòa giải, trọng tài, tòa án...). Điều 51 thừa nhận quyền tự vệ cá nhân và tập thể khi bị tấn công vũ trang. Chương VII trao cho Hội đồng Bảo an thẩm quyền áp dụng biện pháp cưỡng chế để duy trì hòa bình và an ninh quốc tế.\nĐiều 92 xác lập Tòa án Công lý Quốc tế (ICJ) là cơ quan tư pháp chính của Liên hợp quốc.",
+      "tags": ["Liên hợp quốc", "cấm sử dụng vũ lực", "tự vệ", "Hội đồng Bảo an", "Điều 2(4)"],
+      "sources": [
+        { "title": "Toàn văn Hiến chương Liên hợp quốc (UN)", "url": "https://www.un.org/en/about-us/un-charter/full-text" }
+      ]
+    },
+    {
+      "name": "Công ước Viên 1969 về Luật Điều ước",
+      "category": "Điều ước quốc tế",
+      "date": "Ký ngày 23/05/1969; có hiệu lực từ 27/01/1980",
+      "content": "Được xem là \"điều ước của các điều ước\", quy định cách thức ký kết, hiệu lực, giải thích và chấm dứt điều ước giữa các quốc gia.\nĐiều 26 ghi nhận nguyên tắc pacta sunt servanda: điều ước có hiệu lực ràng buộc các bên và phải được thực hiện với thiện chí. Điều 27 quy định một bên không được viện dẫn pháp luật nội địa để biện minh cho việc không thực hiện điều ước.\nĐiều 31 đến 33 đặt ra quy tắc giải thích điều ước: theo nghĩa thông thường của từ ngữ, trong bối cảnh, và theo đối tượng, mục đích của điều ước.\nĐiều 53 quy định điều ước vô hiệu nếu xung đột với quy phạm bắt buộc chung (jus cogens).",
+      "tags": ["luật điều ước", "pacta sunt servanda", "jus cogens", "giải thích điều ước", "Công ước Viên"],
+      "sources": [
+        { "title": "Văn bản Công ước Viên 1969 (UN Treaty Collection)", "url": "https://legal.un.org/ilc/texts/instruments/english/conventions/1_1_1969.pdf" }
+      ]
+    },
+    {
+      "name": "Công ước Viên 1961 về Quan hệ ngoại giao",
+      "category": "Điều ước quốc tế",
+      "date": "Ký ngày 18/04/1961; có hiệu lực từ 24/04/1964",
+      "content": "Văn kiện pháp lý cốt lõi về quan hệ ngoại giao giữa các quốc gia, đồng thời hệ thống hóa nhiều tập quán ngoại giao lâu đời.\nCơ quan đại diện ngoại giao được bảo hộ bất khả xâm phạm (Điều 22): nhà chức trách nước tiếp nhận không được vào trụ sở nếu không có sự đồng ý của người đứng đầu cơ quan; nước tiếp nhận có nghĩa vụ đặc biệt bảo vệ trụ sở.\nViên chức ngoại giao được bất khả xâm phạm về thân thể (Điều 29) và hưởng quyền miễn trừ xét xử hình sự của nước tiếp nhận (Điều 31). Nước tiếp nhận có thể tuyên bố một viên chức ngoại giao là persona non grata (Điều 9) mà không cần giải thích lý do.",
+      "tags": ["ngoại giao", "miễn trừ ngoại giao", "bất khả xâm phạm", "persona non grata", "đại sứ quán"],
+      "sources": [
+        { "title": "Công ước Viên 1961 (UN Treaty Collection)", "url": "https://legal.un.org/ilc/texts/instruments/english/conventions/9_1_1961.pdf" }
+      ]
+    },
+    {
+      "name": "Quy chế Rome 1998 về Tòa án Hình sự Quốc tế (ICC)",
+      "category": "Điều ước quốc tế",
+      "date": "Thông qua ngày 17/07/1998; có hiệu lực từ 01/07/2002",
+      "content": "Thành lập Tòa án Hình sự Quốc tế (ICC) có trụ sở tại The Hague, là cơ quan thường trực xét xử cá nhân phạm các tội nghiêm trọng nhất đối với cộng đồng quốc tế.\nThẩm quyền theo vấn đề gồm bốn nhóm tội: diệt chủng, tội ác chống nhân loại, tội ác chiến tranh và tội xâm lược.\nNguyên tắc bổ sung (complementarity): ICC chỉ thực hiện thẩm quyền khi quốc gia có thẩm quyền không muốn hoặc không thực sự có khả năng điều tra, truy tố.\nTrách nhiệm hình sự thuộc về cá nhân; không ai được miễn trách nhiệm vì là nguyên thủ hay quan chức nhà nước (Điều 27).",
+      "tags": ["ICC", "tội ác quốc tế", "diệt chủng", "trách nhiệm hình sự cá nhân", "nguyên tắc bổ sung"],
+      "sources": [
+        { "title": "Quy chế Rome (ICC)", "url": "https://www.icc-cpi.int/sites/default/files/RS-Eng.pdf" }
+      ]
+    },
+    {
+      "name": "Nguyên tắc Pacta sunt servanda (tận tâm thực hiện cam kết)",
+      "category": "Nguyên tắc pháp lý chung",
+      "date": "Nguyên tắc có từ luật La Mã, được hệ thống hóa tại Điều 26 Công ước Viên 1969",
+      "content": "Mọi điều ước đang có hiệu lực đều ràng buộc các bên tham gia và phải được các bên thực hiện một cách thiện chí.\nLà nền tảng của toàn bộ pháp luật điều ước: nếu cam kết không được tôn trọng thì quan hệ hợp tác quốc tế không thể ổn định.\nHệ quả đi kèm: một quốc gia không được viện dẫn quy định của pháp luật nội địa để từ chối thực hiện điều ước (Điều 27 Công ước Viên 1969).\nNguyên tắc này được ICJ viện dẫn nhiều lần, tiêu biểu trong vụ Gabčíkovo-Nagymaros (1997).",
+      "tags": ["pacta sunt servanda", "thiện chí", "điều ước", "nguyên tắc cơ bản"],
+      "sources": []
+    },
+    {
+      "name": "Nguyên tắc không can thiệp vào công việc nội bộ của quốc gia khác",
+      "category": "Tập quán quốc tế",
+      "date": "Hình thành qua thực tiễn quốc gia; được ghi nhận trong Điều 2(7) Hiến chương LHQ và Nghị quyết 2625 (1970) của Đại hội đồng",
+      "content": "Quốc gia không có quyền can thiệp trực tiếp hay gián tiếp, bằng bất kỳ lý do nào, vào các công việc thuộc thẩm quyền nội bộ của quốc gia khác như lựa chọn chế độ chính trị, kinh tế, xã hội và chính sách đối ngoại.\nTrong vụ Nicaragua kiện Hoa Kỳ (1986), ICJ khẳng định đây là quy tắc của luật tập quán quốc tế, tồn tại độc lập với Hiến chương LHQ.\nCan thiệp bị cấm khi nhằm vào những vấn đề mà mỗi quốc gia được tự quyết định và có sử dụng biện pháp cưỡng ép, đặc biệt là sử dụng vũ lực hoặc hỗ trợ lực lượng vũ trang đối lập.",
+      "tags": ["không can thiệp", "chủ quyền", "tập quán quốc tế", "Nicaragua", "Nghị quyết 2625"],
+      "sources": [
+        { "title": "Vụ Nicaragua kiện Hoa Kỳ (ICJ)", "url": "https://www.icj-cij.org/case/70" }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "name": "Vụ Lotus (Pháp kiện Thổ Nhĩ Kỳ)",
+      "court": "PCIJ",
+      "year": 1927,
+      "facts": "Ngày 02/08/1926, tàu chở thư Lotus của Pháp va chạm với tàu than Boz-Kourt của Thổ Nhĩ Kỳ trên biển cả, làm tàu Thổ chìm và 8 thủy thủ Thổ thiệt mạng. Khi tàu Lotus cập cảng Constantinople, chính quyền Thổ bắt và truy tố sĩ quan trực ca người Pháp là ông Demons về tội ngộ sát. Pháp phản đối, cho rằng Thổ Nhĩ Kỳ không có thẩm quyền xét xử người Pháp về sự việc xảy ra trên biển cả. Hai nước thỏa thuận đưa vụ việc ra Tòa án Thường trực Công lý Quốc tế (PCIJ).",
+      "issues": "1. Thổ Nhĩ Kỳ có vi phạm luật quốc tế khi xét xử một công dân Pháp về vụ va chạm xảy ra trên biển cả không?\n2. Luật quốc tế có cấm quốc gia thực hiện thẩm quyền tài phán hình sự đối với hành vi xảy ra ngoài lãnh thổ nước mình không?",
+      "holding": "Tòa (với kết quả 6 phiếu thuận, 6 phiếu chống, và phiếu quyết định của Chủ tịch) cho rằng Thổ Nhĩ Kỳ không vi phạm luật quốc tế.\nLập luận cốt lõi: quốc gia có quyền tự do hành động trừ khi có quy tắc cấm đoán rõ ràng. Luật quốc tế không có quy tắc cấm quốc gia thực hiện tài phán đối với hành vi xảy ra ngoài lãnh thổ. Hậu quả của vụ va chạm xảy ra trên tàu Boz-Kourt mang cờ Thổ, nên có thể coi như đã xảy ra trên lãnh thổ Thổ Nhĩ Kỳ.",
+      "significance": "Đưa ra \"nguyên tắc Lotus\": những gì luật quốc tế không cấm thì quốc gia được phép. Nguyên tắc này sau đó bị hạn chế, nhất là trong lĩnh vực hàng hải: Điều 11 Công ước Geneva 1958 về biển cả và Điều 97 UNCLOS 1982 quy định chỉ quốc gia mà tàu mang cờ hoặc quốc gia mà người liên quan là công dân mới có thẩm quyền trong vụ va chạm trên biển cả. Vẫn là án lệ kinh điển về chủ quyền và thẩm quyền tài phán.",
+      "tags": ["thẩm quyền tài phán", "biển cả", "nguyên tắc Lotus", "PCIJ"],
+      "sources": [
+        { "title": "Tổng quan vụ Lotus (Wikipedia)", "url": "https://en.wikipedia.org/wiki/S.S._Lotus" }
+      ]
+    },
+    {
+      "name": "Vụ Ngư trường Anh - Na Uy",
+      "court": "ICJ",
+      "year": 1951,
+      "facts": "Năm 1935, Na Uy ban hành sắc lệnh hoàng gia xác định vùng đánh cá độc quyền dọc bờ biển phía bắc vĩ tuyến 66°28'48\" B. Ranh giới của vùng này được vạch bằng các đường cơ sở thẳng nối các điểm trên đảo, đá và mũi đất của vùng bờ biển nhiều đảo (skjaergaard), thay vì đi theo đường mức nước thủy triều thấp. Anh phản đối vì nhiều tàu đánh cá Anh bị Na Uy bắt giữ trong vùng này. Anh đưa vụ việc ra ICJ.",
+      "issues": "1. Phương pháp đường cơ sở thẳng mà Na Uy sử dụng có trái với luật quốc tế không?\n2. Các đường cơ sở cụ thể do Na Uy vạch ra có hợp pháp không?",
+      "holding": "Tòa án (10 phiếu thuận, 2 phiếu chống) cho rằng phương pháp đường cơ sở thẳng không trái với luật quốc tế, và các đường cơ sở do Na Uy vạch ra cũng không trái với luật quốc tế.\nTòa nhấn mạnh việc phân định vùng biển luôn có yếu tố quốc tế, không thể phụ thuộc hoàn toàn vào ý chí đơn phương của quốc gia ven biển. Các tiêu chí được xét đến: đường cơ sở không được đi chệch đáng kể khỏi hướng chung của bờ biển; các vùng nước nằm trong đường cơ sở phải liên hệ đủ chặt chẽ với đất liền; và có xét đến lợi ích kinh tế đặc thù của địa phương, được chứng minh bằng thực tiễn lâu dài. Tòa cũng ghi nhận thực tiễn lâu dài của Na Uy mà Anh không phản đối trong thời gian dài.",
+      "significance": "Là cơ sở cho quy định về đường cơ sở thẳng tại Điều 4 Công ước Geneva 1958 về lãnh hải và Điều 7 UNCLOS 1982. Có ý nghĩa quan trọng đối với cách xác định đường cơ sở của các quốc gia có bờ biển khúc khuỷu, nhiều đảo ven bờ, trong đó có Việt Nam.",
+      "tags": ["đường cơ sở thẳng", "lãnh hải", "luật biển", "ngư trường"],
+      "sources": [
+        { "title": "Fisheries Case - ICJ", "url": "https://www.icj-cij.org/case/5" }
+      ]
+    },
+    {
+      "name": "Vụ Nicaragua kiện Hoa Kỳ (Các hoạt động quân sự và bán quân sự tại và chống Nicaragua)",
+      "court": "ICJ",
+      "year": 1986,
+      "facts": "Từ đầu thập niên 1980, Hoa Kỳ hỗ trợ tài chính, huấn luyện, cung cấp vũ khí cho lực lượng Contras chống chính quyền Sandinista của Nicaragua. Năm 1984, Hoa Kỳ còn bị cáo buộc đặt mìn tại các cảng của Nicaragua. Nicaragua kiện Hoa Kỳ ra ICJ về việc vi phạm luật quốc tế. Hoa Kỳ cho rằng ICJ không có thẩm quyền, cho rằng đây là hành động tự vệ tập thể thay mặt El Salvador, và sau đó rút khỏi giai đoạn xét xử nội dung.",
+      "issues": "1. ICJ có thẩm quyền khi Hoa Kỳ viện dẫn bảo lưu đa phương (bảo lưu Vandenberg) không?\n2. Các hoạt động của Hoa Kỳ có vi phạm nghĩa vụ không sử dụng vũ lực và không can thiệp theo luật tập quán không?\n3. Hoa Kỳ có thể viện dẫn quyền tự vệ tập thể hay không?",
+      "holding": "Tòa phán quyết ngày 27/06/1986 rằng Hoa Kỳ đã vi phạm nghĩa vụ không sử dụng vũ lực, không can thiệp vào công việc nội bộ của Nicaragua, và vi phạm chủ quyền của nước này.\nTòa khẳng định luật tập quán quốc tế tồn tại độc lập với luật điều ước, kể cả khi nội dung hai nguồn này trùng nhau. Bảo lưu Vandenberg không ngăn Tòa áp dụng luật tập quán.\nVề tự vệ tập thể: cần có nạn nhân bị tấn công vũ trang, nạn nhân tuyên bố mình bị tấn công và yêu cầu quốc gia khác giúp đỡ; việc cung cấp vũ khí hay hỗ trợ cho lực lượng nổi dậy không đủ để coi là tấn công vũ trang. Hoa Kỳ không đáp ứng các điều kiện này.\nHoa Kỳ phải bồi thường cho Nicaragua (số tiền được ấn định sau, nhưng vụ việc được rút khỏi Tòa năm 1991).",
+      "significance": "Là án lệ quan trọng nhất về cấm sử dụng vũ lực và nguyên tắc không can thiệp. Làm rõ cách chứng minh tập quán quốc tế (thực tiễn quốc gia và opinio juris), đồng thời đặt ra tiêu chuẩn \"kiểm soát hữu hiệu\" (effective control) để quy trách nhiệm cho quốc gia đối với hành vi của các nhóm vũ trang.",
+      "tags": ["cấm sử dụng vũ lực", "không can thiệp", "tự vệ tập thể", "tập quán quốc tế", "effective control"],
+      "sources": [
+        { "title": "Nicaragua v. United States - ICJ", "url": "https://www.icj-cij.org/case/70" }
+      ]
+    },
+    {
+      "name": "Vụ Gabčíkovo-Nagymaros (Hungary/Slovakia)",
+      "court": "ICJ",
+      "year": 1997,
+      "facts": "Năm 1977, Hungary và Tiệp Khắc ký hiệp ước xây dựng hệ thống đập thủy điện Gabčíkovo-Nagymaros trên sông Danube. Năm 1989, Hungary đình chỉ và sau đó từ bỏ việc thực hiện phần công trình của mình, viện dẫn lo ngại về môi trường và tình trạng cấp thiết. Tiệp Khắc tiến hành \"Phương án C\" là chuyển dòng chảy sông Danube về phía lãnh thổ mình vào tháng 10/1992. Hungary tuyên bố chấm dứt hiệp ước năm 1992. Sau khi Tiệp Khắc giải thể (1993), Slovakia kế thừa. Hai nước đưa vụ việc ra ICJ.",
+      "issues": "1. Hungary có quyền đình chỉ và chấm dứt hiệp ước 1977 dựa trên tình trạng cấp thiết (state of necessity) không?\n2. Việc Tiệp Khắc thực hiện Phương án C có hợp pháp không?\n3. Hiệp ước 1977 có còn hiệu lực không?",
+      "holding": "Tòa án công nhận môi trường là lợi ích thiết yếu của quốc gia, nhưng cho rằng Hungary không chứng minh đủ điều kiện của tình trạng cấp thiết (nguy cơ nghiêm trọng, cận kề và không có biện pháp nào khác), nên việc đình chỉ công trình là bất hợp pháp.\nTuy vậy, Tòa cũng cho rằng Tiệp Khắc không có quyền thực hiện Phương án C, vì biện pháp này không tương xứng và vi phạm quyền chia sẻ công bằng tài nguyên nước chung.\nHiệp ước 1977 vẫn có hiệu lực; việc Hungary tuyên bố chấm dứt không có hiệu lực. Các bên phải thương lượng thiện chí để thực hiện hiệp ước, có tính đến các tiêu chuẩn môi trường hiện đại.",
+      "significance": "Khẳng định nhiều quy định của Công ước Viên 1969 về chấm dứt điều ước phản ánh luật tập quán. Làm rõ điều kiện chặt chẽ của tình trạng cấp thiết như căn cứ loại trừ trách nhiệm quốc tế. Là một trong những phán quyết đầu tiên của ICJ nhắc tới nguyên tắc phát triển bền vững.",
+      "tags": ["luật điều ước", "tình trạng cấp thiết", "môi trường", "sông Danube", "phát triển bền vững"],
+      "sources": [
+        { "title": "Gabčíkovo-Nagymaros Project - ICJ", "url": "https://www.icj-cij.org/case/92" }
+      ]
+    },
+    {
+      "name": "Vụ Lệnh bắt giữ ngày 11/04/2000 (CHDC Congo kiện Bỉ)",
+      "court": "ICJ",
+      "year": 2002,
+      "facts": "Ngày 11/04/2000, một thẩm phán điều tra của Bỉ ban hành lệnh bắt giữ quốc tế đối với ông Abdulaye Yerodia Ndombasi, khi đó là Bộ trưởng Ngoại giao Cộng hòa Dân chủ Congo (DRC), với cáo buộc vi phạm nghiêm trọng Công ước Geneva và tội ác chống nhân loại, dựa trên luật Bỉ về thẩm quyền tài phán toàn cầu. Lệnh bắt giữ được phát đi quốc tế. DRC kiện Bỉ ra ICJ vì cho rằng lệnh này xâm phạm quyền miễn trừ của quan chức ngoại giao đương nhiệm.",
+      "issues": "1. Bộ trưởng Ngoại giao đương nhiệm có được hưởng quyền miễn trừ tài phán hình sự và bất khả xâm phạm trước tòa án của quốc gia khác không?\n2. Việc ban hành và phát đi lệnh bắt giữ có vi phạm luật quốc tế không, kể cả khi hành vi bị cáo buộc là tội ác quốc tế?",
+      "holding": "Tòa án (13 phiếu thuận, 3 phiếu chống) cho rằng theo luật tập quán quốc tế, Bộ trưởng Ngoại giao đương nhiệm được hưởng quyền miễn trừ tài phán hình sự đầy đủ và bất khả xâm phạm ở các nước khác, bởi họ cần thực hiện chức năng đối ngoại một cách độc lập. Quyền miễn trừ này áp dụng bất kể hành vi được thực hiện trong hay ngoài khả năng chính thức.\nViệc ban hành và phát đi lệnh bắt giữ vi phạm quyền miễn trừ này. Bỉ phải hủy bỏ lệnh bằng phương tiện thích hợp.\nTòa lưu ý miễn trừ không đồng nghĩa với không bị trừng phạt: người có thể bị truy tố tại nước mình, khi hết nhiệm kỳ, nếu quốc gia họ từ bỏ miễn trừ, hoặc trước tòa án quốc tế có thẩm quyền.",
+      "significance": "Khẳng định quyền miễn trừ của các quan chức cấp cao đương nhiệm (nguyên thủ, người đứng đầu chính phủ, bộ trưởng ngoại giao) là tập quán quốc tế, có ngoại lệ hạn chế. Có ảnh hưởng lớn đến việc thực thi thẩm quyền tài phán toàn cầu và quan hệ giữa miễn trừ với việc truy cứu các tội ác quốc tế.",
+      "tags": ["miễn trừ", "thẩm quyền tài phán toàn cầu", "tội ác chống nhân loại", "bộ trưởng ngoại giao"],
+      "sources": [
+        { "title": "Arrest Warrant of 11 April 2000 - ICJ", "url": "https://www.icj-cij.org/case/121" }
+      ]
+    },
+    {
+      "name": "Vụ Philippines kiện Trung Quốc về Biển Đông (Phán quyết trọng tài năm 2016)",
+      "court": "PCA",
+      "year": 2016,
+      "facts": "Ngày 22/01/2013, Philippines khởi kiện Trung Quốc theo Phụ lục VII UNCLOS về các yêu sách của Trung Quốc ở Biển Đông, gồm yêu sách \"đường chín đoạn\", tình trạng pháp lý của các thực thể ở quần đảo Trường Sa và các hoạt động của Trung Quốc tại khu vực này. Trung Quốc từ chối tham gia tố tụng và cho rằng Tòa không có thẩm quyền, song Tòa vẫn tiếp tục xét xử theo Phụ lục VII. Phán quyết về nội dung được công bố ngày 12/07/2016.",
+      "issues": "1. Yêu sách quyền lịch sử của Trung Quốc trong phạm vi \"đường chín đoạn\" có phù hợp với UNCLOS không?\n2. Các thực thể địa lý ở Trường Sa là đảo, đá hay bãi cạn, và có tạo ra vùng đặc quyền kinh tế hoặc thềm lục địa không?\n3. Các hoạt động của Trung Quốc có vi phạm quyền chủ quyền của Philippines và nghĩa vụ bảo vệ môi trường biển không?",
+      "holding": "Tòa trọng tài xác định mình có thẩm quyền đối với phần lớn các yêu cầu của Philippines và Trung Quốc không tham gia không ngăn cản Tòa tiếp tục.\nTòa kết luận không có cơ sở pháp lý để Trung Quốc yêu sách quyền lịch sử đối với các vùng biển nằm trong \"đường chín đoạn\" vượt quá những gì UNCLOS cho phép; UNCLOS đã thay thế các quyền lịch sử trái với quy định về vùng đặc quyền kinh tế.\nTòa xác định không có thực thể nào ở quần đảo Trường Sa, kể cả đảo Ba Bình (Itu Aba), là \"đảo\" theo Điều 121(3) có khả năng tạo ra vùng đặc quyền kinh tế 200 hải lý.\nTòa kết luận Trung Quốc đã vi phạm quyền chủ quyền của Philippines trong EEZ và gây tổn hại đến môi trường biển (qua hoạt động xây đảo nhân tạo, đánh bắt hủy diệt san hô).",
+      "significance": "Phán quyết quan trọng nhất về giải thích UNCLOS liên quan đến Biển Đông, đặc biệt Điều 121 về chế độ đảo và việc UNCLOS thay thế các yêu sách quyền lịch sử. Phán quyết có giá trị ràng buộc các bên theo UNCLOS nhưng không có cơ chế cưỡng chế thi hành. Có ý nghĩa thực tiễn lớn đối với Việt Nam và các nước ven Biển Đông trong việc lập luận pháp lý về yêu sách biển.",
+      "tags": ["Biển Đông", "UNCLOS", "đường chín đoạn", "Điều 121", "PCA"],
+      "sources": [
+        { "title": "South China Sea Arbitration - PCA", "url": "https://pca-cpa.org/en/cases/7/" }
+      ]
+    }
+  ]
+}

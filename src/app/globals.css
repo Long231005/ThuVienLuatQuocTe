@@ -1,0 +1,322 @@
+@import "tailwindcss" source("../");
+
+:root {
+  --bg-page: #f1f5f9;
+  --bg-surface: #ffffff;
+  --bg-muted: #f8fafc;
+  --bg-sidebar: #ffffff;
+  --bg-sidebar-muted: #f1f5f9;
+  --bg-sidebar-hover: #f1f5f9;
+  --bg-sidebar-active: #0b1f3a;
+  --text-sidebar-primary: #0b1f3a;
+  --text-sidebar-secondary: #475569;
+  --text-sidebar-active: #ffffff;
+  --border-sidebar: #e2e8f0;
+  --text-primary: #0f172a;
+  --text-heading: #0b1f3a;
+  --text-secondary: #334155;
+  --text-muted: #475569;
+  --border-subtle: #cbd5e1;
+  --border-card: #e2e8f0;
+  --navy-900: #0b1f3a;
+  --navy-800: #12294d;
+  --navy-700: #1b3a6b;
+  --primary-btn-bg: #0b1f3a;
+  --primary-btn-hover: #1b3a6b;
+  --primary-btn-text: #ffffff;
+  --focus-ring: #1b3a6b;
+  --highlight-ring: #f59e0b;
+}
+
+.dark {
+  --bg-page: #071120;
+  --bg-surface: #0f1e36;
+  --bg-muted: #152847;
+  --bg-sidebar: #060e1a;
+  --bg-sidebar-muted: #12294d;
+  --bg-sidebar-hover: #12294d;
+  --bg-sidebar-active: #1b3a6b;
+  --text-sidebar-primary: #f8fafc;
+  --text-sidebar-secondary: #cbd5e1;
+  --text-sidebar-active: #ffffff;
+  --border-sidebar: #1e3354;
+  --text-primary: #f1f5f9;
+  --text-heading: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --border-subtle: #263e63;
+  --border-card: #1e3354;
+  --navy-900: #0b1f3a;
+  --navy-800: #12294d;
+  --navy-700: #1b3a6b;
+  --primary-btn-bg: #2563eb;
+  --primary-btn-hover: #3b82f6;
+  --primary-btn-text: #ffffff;
+  --focus-ring: #60a5fa;
+  --highlight-ring: #fbbf24;
+}
+
+html {
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  line-height: 1.65;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Tiêu đề chữ serif (Lora) giữ phong cách pháp lý nghiêm túc, hỗ trợ đầy đủ dấu tiếng Việt */
+.serif {
+  font-family: var(--font-serif), Georgia, serif;
+}
+
+/* Đảm bảo không dùng letter-spacing, word-spacing hay text-align: justify cho tiếng Việt */
+p,
+li,
+dd,
+dt,
+blockquote,
+label,
+input,
+textarea,
+select,
+button,
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-align: start;
+}
+
+/* Thành phần giao diện dùng biến màu chuẩn WCAG AA */
+.surface-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: 0.625rem;
+}
+
+/* Hiệu ứng nâng nhẹ khi di chuột trên máy tính */
+@media (min-width: 768px) {
+  .card-interactive {
+    transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+  }
+  .card-interactive:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px -6px rgba(11, 31, 58, 0.14);
+  }
+  .dark .card-interactive:hover {
+    box-shadow: 0 8px 20px -6px rgba(0, 0, 0, 0.45);
+  }
+}
+
+.field-input {
+  width: 100%;
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 0.5rem;
+  padding: 0.625rem 0.75rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.field-input:focus {
+  outline: none;
+  border-color: var(--focus-ring);
+  box-shadow: 0 0 0 2px var(--focus-ring);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background-color: var(--primary-btn-bg);
+  color: var(--primary-btn-text);
+  transition: background-color 150ms ease, transform 100ms ease, opacity 150ms ease;
+  cursor: pointer;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--primary-btn-hover);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.btn-primary:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  min-height: 44px;
+  padding: 0.5rem 0.875rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  transition: background-color 150ms ease, transform 100ms ease;
+  cursor: pointer;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--bg-muted);
+}
+
+.btn-secondary:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.btn-secondary:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.btn-secondary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Chuyển trang mượt: máy tính fade + trượt nhẹ 8px (~250ms), điện thoại fade ngắn (~150ms) */
+@keyframes pageEnterMobile {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pageEnterDesktop {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.page-transition {
+  animation: pageEnterMobile 150ms ease-out both;
+}
+
+@media (min-width: 768px) {
+  .page-transition {
+    animation: pageEnterDesktop 250ms ease-out both;
+  }
+}
+
+/* Stagger danh sách trên máy tính (tối đa 10 phần tử đầu) */
+@media (min-width: 768px) {
+  .stagger-item {
+    animation: pageEnterDesktop 240ms ease-out both;
+  }
+}
+
+/* Hộp thoại modal: nền mờ dần và hộp phóng từ 0.96 lên 1 */
+@keyframes modalBackdropFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalPanelScale {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal-backdrop-anim {
+  animation: modalBackdropFade 180ms ease-out both;
+}
+
+.modal-panel-anim {
+  animation: modalPanelScale 200ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Kỹ thuật mở/đóng chiều cao mượt bằng grid-template-rows: 0fr -> 1fr */
+.expand-grid {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 250ms ease-out, opacity 200ms ease-out;
+  opacity: 0;
+}
+
+.expand-grid[data-open="true"] {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.expand-inner {
+  overflow: hidden;
+}
+
+/* Làm nổi bật ngắn khi bấm từ tìm kiếm toàn văn (?open=<id>) */
+@keyframes highlightPulse {
+  0% {
+    box-shadow: 0 0 0 3px var(--highlight-ring);
+  }
+  70% {
+    box-shadow: 0 0 0 3px var(--highlight-ring);
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+.highlight-target {
+  animation: highlightPulse 2.4s ease-out;
+}
+
+/* Tôn trọng prefers-reduced-motion: tắt toàn bộ hiệu ứng chuyển động */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .card-interactive:hover {
+    transform: none !important;
+  }
+}
